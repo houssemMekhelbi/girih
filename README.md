@@ -53,8 +53,8 @@ sudo pacman -S --needed $(grep -v '^#' girih/packages.txt)
 > Everything it replaces is backed up first.
 
 ```sh
-git clone https://github.com/houssemMekhelbi/hattin-girih.git
-cd hattin-girih
+git clone https://github.com/houssemMekhelbi/girih.git
+cd girih
 ./girih/restore.sh --dry-run   # show what would change, touch nothing
 ./girih/restore.sh             # apply
 ```
