@@ -1,0 +1,50 @@
+#!/usr/bin/env python3
+"""Lock-screen line: uppercase italic username, brass diamond, rotating Arabic saying.
+
+Prints Pango markup for the hyprlock label in hypr/hyprlock.conf. Sayings come
+from ~/.config/hypr/girih/sayings.txt (one per line, # for comments); each call
+advances to the next one.
+"""
+
+import os
+from html import escape
+from pathlib import Path
+
+SAYINGS = Path.home() / ".config/hypr/girih/sayings.txt"
+STATE = Path(os.environ.get("XDG_CACHE_HOME", Path.home() / ".cache")) / "girih-lock" / "saying-index"
+
+# Unicode isolates keep the Latin name and the Arabic saying from reordering each other.
+LRI, RLI, PDI = "⁦", "⁧", "⁩"
+
+
+def next_saying():
+    try:
+        lines = [l.strip() for l in SAYINGS.read_text(encoding="utf-8").splitlines()]
+    except OSError:
+        return ""
+    sayings = [l for l in lines if l and not l.startswith("#")]
+    if not sayings:
+        return ""
+    try:
+        index = int(STATE.read_text()) + 1
+    except (OSError, ValueError):
+        index = 0
+    index %= len(sayings)
+    STATE.parent.mkdir(parents=True, exist_ok=True)
+    STATE.write_text(str(index))
+    return sayings[index]
+
+
+def main():
+    user = escape(os.environ.get("USER", "").upper())
+    name = f"{LRI}<span font_family='Cormorant Garamond' style='italic' weight='600' size='xx-large' letter_spacing='2000' foreground='#F2EAD8'>{user}</span>{PDI}"
+    saying = next_saying()
+    if not saying:
+        print(name)
+        return
+    print(f"{name}      <span foreground='#C9A24A' size='small'>◆</span>      "
+          f"{RLI}<span foreground='#E6C36A'>{escape(saying)}</span>{PDI}")
+
+
+if __name__ == "__main__":
+    main()

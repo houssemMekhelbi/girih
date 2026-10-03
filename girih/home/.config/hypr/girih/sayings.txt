@@ -1,0 +1,4 @@
+# Sayings shown on the lock screen next to your name, one per line.
+# Add or delete lines freely; blank lines and lines starting with # are skipped.
+# The lock screen moves to the next saying each time it locks, and every 10 minutes while locked.
+حَاسِبُوا أَنْفُسَكُمْ قَبْلَ أَنْ تُحَاسَبُوا، وَزِنُوا أَنْفُسَكُمْ قَبْلَ أَنْ تُوزَنُوا

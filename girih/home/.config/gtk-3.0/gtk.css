@@ -1,0 +1,290 @@
+/* Girih for GTK3, layered on Adwaita-dark.
+ * Surfaces, selection and scrollbars are global; Thunar-only widgets are
+ * targeted through Thunar's own style classes (.path-bar-button,
+ * .standard-view, .shortcuts-pane, .statusbar-text). Window glass comes from
+ * Hyprland's active/inactive opacity, so backgrounds here are opaque. */
+
+@define-color girih_obsidian #0B0E14;
+@define-color girih_slate    #121826;
+@define-color girih_raised   #1A2233;
+@define-color girih_hairline #2A3345;
+@define-color girih_emerald  #0F6B4F;
+@define-color girih_lapis    #1F4E9C;
+@define-color girih_brass    #C9A24A;
+@define-color girih_gold     #E6C36A;
+@define-color girih_ivory    #F2EAD8;
+@define-color girih_muted    #A8A090;
+
+@define-color theme_bg_color          @girih_slate;
+@define-color theme_fg_color          @girih_ivory;
+@define-color theme_base_color        @girih_obsidian;
+@define-color theme_text_color        @girih_ivory;
+@define-color theme_selected_bg_color @girih_raised;
+@define-color theme_selected_fg_color @girih_ivory;
+@define-color insensitive_fg_color    @girih_muted;
+@define-color borders                 @girih_hairline;
+
+/* ---- global: selection and scrollbars ------------------------------ */
+
+selection,
+*:selected,
+*:selected:focus {
+    background-color: alpha(@girih_raised, 0.7);
+    color: @girih_ivory;
+}
+
+scrollbar,
+scrollbar trough {
+    background: transparent;
+    border: none;
+}
+
+scrollbar slider {
+    min-width: 4px;
+    min-height: 4px;
+    border: none;
+    border-radius: 0;
+    background-color: alpha(@girih_brass, 0.4);
+}
+
+scrollbar slider:hover {
+    background-color: alpha(@girih_brass, 0.7);
+}
+
+tooltip,
+tooltip.background {
+    background-color: rgba(11, 14, 20, 0.92);
+    border: 1px solid alpha(@girih_brass, 0.5);
+    border-radius: 0;
+    color: @girih_ivory;
+}
+
+/* ---- surfaces ---------------------------------------------------- */
+
+window.background,
+menubar,
+.toolbar,
+toolbar,
+statusbar,
+notebook,
+notebook header,
+paned {
+    background-color: @girih_obsidian;
+    background-image: none;
+    color: @girih_muted;
+    box-shadow: none;
+}
+
+.view,
+iconview,
+treeview.view,
+textview text,
+scrolledwindow viewport {
+    background-color: @girih_obsidian;
+    color: @girih_muted;
+}
+
+.sidebar,
+.sidebar .view,
+placessidebar,
+placessidebar list {
+    background-color: @girih_slate;
+    color: @girih_muted;
+}
+
+menubar,
+.toolbar,
+toolbar {
+    border-bottom: 1px solid alpha(@girih_brass, 0.25);
+}
+
+menubar > menuitem {
+    color: @girih_muted;
+}
+
+menubar > menuitem:hover {
+    background-color: alpha(@girih_raised, 0.6);
+    color: @girih_ivory;
+    box-shadow: inset 0 -1px @girih_brass;
+}
+
+menu,
+.menu,
+.context-menu,
+popover,
+popover.background {
+    background-color: @girih_obsidian;
+    border: 1px solid alpha(@girih_brass, 0.5);
+    border-radius: 0;
+    color: @girih_muted;
+}
+
+menu menuitem:hover,
+.menu menuitem:hover {
+    background-color: @girih_raised;
+    color: @girih_ivory;
+}
+
+entry {
+    background-color: @girih_raised;
+    border: 1px solid alpha(@girih_brass, 0.35);
+    border-radius: 0;
+    box-shadow: none;
+    color: @girih_ivory;
+    caret-color: @girih_gold;
+}
+
+entry:focus {
+    border-color: @girih_brass;
+}
+
+button {
+    border-radius: 0;
+}
+
+paned > separator {
+    background: alpha(@girih_brass, 0.2);
+    background-image: none;
+    min-width: 1px;
+    min-height: 1px;
+}
+
+headerbar {
+    background: @girih_slate;
+    border-bottom: 1px solid @girih_brass;
+    border-radius: 0;
+    box-shadow: none;
+    color: @girih_ivory;
+}
+
+/* ---- Thunar ------------------------------------------------------- */
+
+/* Path bar: breadcrumb of Brass slashes, current segment boxed in Raised
+ * Slate. GTK3 CSS has no generated content, so the slash is an image
+ * (girih/crumb-slash.png) sitting in each non-current segment's right padding. */
+.path-bar-button {
+    background-color: transparent;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 10px 18px;
+    border: 1px solid transparent;
+    border-radius: 0;
+    box-shadow: none;
+    color: @girih_muted;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 11px;
+    padding: 2px 16px 2px 4px;
+    margin: 0;
+    min-height: 0;
+}
+
+/* Segments carry the slash; the checked (current) segment and the two
+ * scroll arrows packed at the end of the path bar stay bare. */
+.path-bar .path-bar-button {
+    background-image: -gtk-scaled(url("girih/crumb-slash.png"));
+}
+
+.path-bar .path-bar-button:checked,
+.path-bar > .path-bar-button:nth-last-child(-n+2) {
+    background-image: none;
+}
+
+.path-bar-button:hover {
+    color: @girih_ivory;
+}
+
+.path-bar-button:checked {
+    background-color: alpha(@girih_raised, 0.8);
+    border-color: alpha(@girih_brass, 0.35);
+    color: @girih_ivory;
+    padding: 2px 8px;
+    margin-left: 4px;
+}
+
+.path-bar-button image {
+    color: @girih_gold;
+    -gtk-icon-style: symbolic;
+}
+
+.toolbar button,
+toolbar button {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    color: @girih_brass;
+}
+
+.toolbar button:hover,
+toolbar button:hover {
+    background-color: alpha(@girih_raised, 0.6);
+    color: @girih_gold;
+}
+
+.toolbar button:disabled,
+toolbar button:disabled {
+    color: alpha(@girih_brass, 0.35);
+}
+
+.shortcuts-pane {
+    border-right: 1px solid alpha(@girih_brass, 0.2);
+}
+
+.sidebar .view {
+    padding: 3px 0;
+}
+
+/* Sidebar: small diamonds (16px Girih icons); the current place lifts to
+ * Raised Slate with a Brass hairline and a brightened diamond. */
+.sidebar .view {
+    font-size: 12px;
+}
+
+.sidebar .view:selected,
+.sidebar .view:selected:focus {
+    background-color: alpha(@girih_raised, 0.9);
+    color: @girih_ivory;
+    box-shadow: inset 0 0 0 1px alpha(@girih_brass, 0.5);
+    -gtk-icon-effect: highlight;
+}
+
+.sidebar .view.cell:hover {
+    color: @girih_ivory;
+}
+
+/* File view selection: Raised Slate with a 1px Brass outline. */
+.standard-view iconview:selected,
+.standard-view iconview:selected:focus,
+.standard-view treeview.view:selected,
+.standard-view treeview.view:selected:focus,
+.standard-view .view:selected {
+    background-color: @girih_raised;
+    color: @girih_ivory;
+    outline: 1px solid @girih_brass;
+    outline-offset: -1px;
+    border-radius: 0;
+}
+
+.standard-view treeview.view header button {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid alpha(@girih_brass, 0.25);
+    color: @girih_brass;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.split-view-inactive-pane {
+    opacity: 0.8;
+}
+
+/* Status bar: 10px mono, letter-spaced. */
+statusbar,
+.statusbar-text {
+    border-top: 1px solid alpha(@girih_brass, 0.25);
+    color: @girih_muted;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 10px;
+    letter-spacing: 0.8px;
+}

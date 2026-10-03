@@ -1,0 +1,19 @@
+# Taskwarrior. Shown in waybar as "yawm" (~/.local/bin/waybar-yawm):
+#   click        list popup   (~/.local/bin/girih-yawm -> girih-yawm-menu)
+#   right-click  quick add    (~/.local/bin/girih-yawm add)
+# Tasks tagged +note are notes: listed last, never counted in the bar.
+
+data.location=~/.local/share/task
+news.version=3.5.0
+editor=nvim
+weekstart=monday
+
+# Girih colours (256-colour cube approximations)
+color.due.today=rgb530
+color.due=rgb431
+color.overdue=rgb411
+color.tag.note=gray12
+color.active=rgb035
+color.header=rgb431
+color.label=rgb431
+color.footnote=gray12

@@ -1,0 +1,79 @@
+# Girih terminal. Obsidian at 84%, compositor blur behind it.
+
+[window]
+opacity = 0.84
+padding = { x = 16, y = 16 }
+decorations = "None"
+blur = true
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+size = 11
+offset = { x = 0, y = 4 }
+
+[cursor]
+style = { shape = "Block", blinking = "Off" }
+vi_mode_style = { shape = "Beam" }
+thickness = 0.2
+
+[colors.primary]
+background = "#0B0E14"
+foreground = "#A8A090"
+bright_foreground = "#F2EAD8"
+
+[colors.cursor]
+text = "#0B0E14"
+cursor = "#E6C36A"
+
+[colors.selection]
+text = "#F2EAD8"
+background = "#1A2233"
+
+# Search, hints, the footer bar and the vi-mode cursor in the theme's colours (alacritty's stock ones otherwise).
+[colors.search.matches]
+foreground = "#0B0E14"
+background = "#E6C36A"
+
+[colors.search.focused_match]
+foreground = "#0B0E14"
+background = "#E6C36A"
+
+[colors.hints.start]
+foreground = "#0B0E14"
+background = "#E6C36A"
+
+[colors.hints.end]
+foreground = "#E6C36A"
+background = "#1A2233"
+
+[colors.footer_bar]
+foreground = "#F2EAD8"
+background = "#1A2233"
+
+[colors.line_indicator]
+foreground = "#0B0E14"
+background = "#C9A24A"
+
+[colors.vi_mode_cursor]
+text = "#0B0E14"
+cursor = "#E6C36A"
+
+[colors.normal]
+black   = "#0B0E14"
+red     = "#C0503F"
+green   = "#2E9C6F"
+yellow  = "#C9A24A"
+blue    = "#3F74D0"
+magenta = "#9A5FB5"
+cyan    = "#3FA8A0"
+white   = "#A8A090"
+
+[colors.bright]
+black   = "#2A3345"
+red     = "#D9705E"
+green   = "#4DBF8C"
+yellow  = "#E6C36A"
+blue    = "#6A97E0"
+magenta = "#B884CC"
+cyan    = "#6CC6BE"
+white   = "#F2EAD8"

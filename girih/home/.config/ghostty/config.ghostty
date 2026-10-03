@@ -1,0 +1,44 @@
+# Girih terminal. Obsidian at 84%, compositor blur behind it.
+
+font-family = JetBrainsMono Nerd Font
+font-size = 11
+adjust-cell-height = 40%
+window-padding-x = 16
+window-padding-y = 16
+window-decoration = none
+background-opacity = 0.84
+background-blur = true
+
+background = #0B0E14
+foreground = #A8A090
+cursor-color = #E6C36A
+cursor-text = #0B0E14
+cursor-style = block
+cursor-style-blink = false
+selection-background = #1A2233
+selection-foreground = #F2EAD8
+
+# Search and splits in the theme's colours (ghostty's stock yellow and orange otherwise).
+search-background = #E6C36A
+search-foreground = #0B0E14
+search-selected-background = #E6C36A
+search-selected-foreground = #0B0E14
+split-divider-color = #2A3345
+unfocused-split-fill = #0B0E14
+
+palette = 0=#0B0E14
+palette = 1=#C0503F
+palette = 2=#2E9C6F
+palette = 3=#C9A24A
+palette = 4=#3F74D0
+palette = 5=#9A5FB5
+palette = 6=#3FA8A0
+palette = 7=#A8A090
+palette = 8=#2A3345
+palette = 9=#D9705E
+palette = 10=#4DBF8C
+palette = 11=#E6C36A
+palette = 12=#6A97E0
+palette = 13=#B884CC
+palette = 14=#6CC6BE
+palette = 15=#F2EAD8

@@ -1,0 +1,6 @@
+# org.gnome.desktop.interface keys applied by restore.sh (captured 2026-09-18)
+gtk-theme='Adwaita'
+icon-theme='Girih'
+color-scheme='prefer-dark'
+font-name='Manrope 10'
+monospace-font-name='JetBrainsMono Nerd Font 11'

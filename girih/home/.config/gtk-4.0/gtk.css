@@ -1,0 +1,38 @@
+/* Girih for GTK4 / libadwaita: named colours only, so apps keep their own
+ * layout while picking up the Girih palette. */
+
+@define-color accent_color            #E6C36A;
+@define-color accent_bg_color         #0F6B4F;
+@define-color accent_fg_color         #F2EAD8;
+
+@define-color destructive_color       #D9705E;
+@define-color destructive_bg_color    #C0503F;
+@define-color destructive_fg_color    #F2EAD8;
+@define-color success_color           #4DBF8C;
+@define-color success_bg_color        #0F6B4F;
+@define-color warning_color           #E6C36A;
+@define-color warning_bg_color        #C9A24A;
+@define-color warning_fg_color        #0B0E14;
+@define-color error_color             #D9705E;
+@define-color error_bg_color          #C0503F;
+
+@define-color window_bg_color         #0B0E14;
+@define-color window_fg_color         #F2EAD8;
+@define-color view_bg_color           #0B0E14;
+@define-color view_fg_color           #F2EAD8;
+@define-color headerbar_bg_color      #121826;
+@define-color headerbar_fg_color      #F2EAD8;
+@define-color headerbar_border_color  #C9A24A;
+@define-color headerbar_backdrop_color #0B0E14;
+@define-color sidebar_bg_color        #121826;
+@define-color sidebar_fg_color        #A8A090;
+@define-color sidebar_border_color    #2A3345;
+@define-color secondary_sidebar_bg_color #0F141E;
+@define-color card_bg_color           #121826;
+@define-color card_fg_color           #F2EAD8;
+@define-color dialog_bg_color         #121826;
+@define-color dialog_fg_color         #F2EAD8;
+@define-color popover_bg_color        #121826;
+@define-color popover_fg_color        #F2EAD8;
+@define-color thumbnail_bg_color      #1A2233;
+@define-color borders                 #2A3345;

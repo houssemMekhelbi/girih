@@ -1,0 +1,289 @@
+/* Girih bar. Each module box is a lintel: a glass body clipped to the
+ * content box, with 10px chamfer caps (PNGs in girih/) in the side padding.
+ * Hyprland blurs the layer (layer rule girih-bar-glass). */
+
+@define-color obsidian #0B0E14;
+@define-color slate    #121826;
+@define-color raised   #1A2233;
+@define-color emerald  #0F6B4F;
+@define-color lapis    #1F4E9C;
+@define-color brass    #C9A24A;
+@define-color gold     #E6C36A;
+@define-color ivory    #F2EAD8;
+@define-color muted    #A8A090;
+
+* {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    text-shadow: none;
+    min-height: 0;
+    font-family: "Manrope", "Readex Pro", "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 12px;
+}
+
+window#waybar {
+    background: transparent;
+    color: @ivory;
+}
+
+tooltip {
+    background: rgba(11, 14, 20, 0.92);
+    border: 1px solid alpha(@brass, 0.5);
+}
+
+tooltip label {
+    color: @ivory;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+}
+
+/* ---- lintels ------------------------------------------------------- */
+
+.modules-left,
+.modules-right {
+    margin-bottom: 8px;
+    padding: 0 10px;
+    background-repeat: no-repeat;
+    background-size: 10px 34px, 10px 34px, 100% 100%;
+    background-position: left top, right top, left top;
+    background-origin: border-box, border-box, content-box;
+    background-clip: border-box, border-box, content-box;
+}
+
+.modules-left {
+    background-image:
+        url("girih/lintel-l-start.png"),
+        url("girih/lintel-l-end.png"),
+        linear-gradient(to bottom,
+            @brass 0px, @brass 1px,
+            rgba(18, 24, 38, 0.72) 1px, rgba(18, 24, 38, 0.72) 33px,
+            alpha(@brass, 0.25) 33px, alpha(@brass, 0.25) 34px);
+}
+
+.modules-right {
+    background-image:
+        url("girih/lintel-r-start.png"),
+        url("girih/lintel-r-end.png"),
+        linear-gradient(to bottom,
+            @brass 0px, @brass 1px,
+            rgba(18, 24, 38, 0.72) 1px, rgba(18, 24, 38, 0.72) 33px,
+            alpha(@brass, 0.25) 33px, alpha(@brass, 0.25) 34px);
+}
+
+/* Centre: body is the top 34px, keystone drops 8px below at the middle. */
+.modules-center {
+    padding: 0 18px 8px 18px;
+    background-repeat: no-repeat;
+    background-image:
+        url("girih/keystone.png"),
+        linear-gradient(to bottom,
+            @brass 0px, @brass 1px,
+            rgba(18, 24, 38, 0.72) 1px, rgba(18, 24, 38, 0.72) 33px,
+            alpha(@brass, 0.25) 33px, alpha(@brass, 0.25) 34px,
+            transparent 34px, transparent 42px);
+    background-size: 20px 8px, 100% 100%;
+    background-position: center bottom, left top;
+}
+
+window#waybar.empty #window {
+    border-left: none;
+}
+
+/* ---- workspaces: diamond grammar ----------------------------------- */
+/* Slots are custom/ws-1..10 plus custom/ws-x (workspaces from another
+ * monitor). State classes come from hattin-workspaces. */
+
+#custom-ws-1, #custom-ws-2, #custom-ws-3, #custom-ws-4, #custom-ws-5,
+#custom-ws-6, #custom-ws-7, #custom-ws-8, #custom-ws-9, #custom-ws-10,
+#custom-ws-x {
+    min-width: 26px;
+    padding: 0;
+    margin: 0;
+    color: #2E9C6F;
+    font-family: "JetBrainsMono Nerd Font", "Noto Sans Symbols 2", monospace;
+    font-size: 18px;
+}
+
+#custom-ws-1.empty, #custom-ws-2.empty, #custom-ws-3.empty, #custom-ws-4.empty,
+#custom-ws-5.empty, #custom-ws-6.empty, #custom-ws-7.empty, #custom-ws-8.empty,
+#custom-ws-9.empty, #custom-ws-10.empty {
+    color: alpha(@brass, 0.45);
+}
+
+/* Shown on a monitor that does not have focus: gold, but quieter. */
+#custom-ws-1.active, #custom-ws-2.active, #custom-ws-3.active, #custom-ws-4.active,
+#custom-ws-5.active, #custom-ws-6.active, #custom-ws-7.active, #custom-ws-8.active,
+#custom-ws-9.active, #custom-ws-10.active {
+    color: alpha(@gold, 0.6);
+}
+
+#custom-ws-1.focused, #custom-ws-2.focused, #custom-ws-3.focused, #custom-ws-4.focused,
+#custom-ws-5.focused, #custom-ws-6.focused, #custom-ws-7.focused, #custom-ws-8.focused,
+#custom-ws-9.focused, #custom-ws-10.focused {
+    color: @gold;
+}
+
+#custom-ws-1.urgent, #custom-ws-2.urgent, #custom-ws-3.urgent, #custom-ws-4.urgent,
+#custom-ws-5.urgent, #custom-ws-6.urgent, #custom-ws-7.urgent, #custom-ws-8.urgent,
+#custom-ws-9.urgent, #custom-ws-10.urgent {
+    color: #3F74D0;
+}
+
+#custom-ws-x {
+    color: #3F74D0;
+    font-size: 14px;
+    padding: 0 4px;
+}
+
+#custom-ws-x.active {
+    color: @gold;
+}
+
+#custom-ws-1:hover, #custom-ws-2:hover, #custom-ws-3:hover, #custom-ws-4:hover,
+#custom-ws-5:hover, #custom-ws-6:hover, #custom-ws-7:hover, #custom-ws-8:hover,
+#custom-ws-9:hover, #custom-ws-10:hover, #custom-ws-x:hover {
+    background: alpha(@raised, 0.6);
+    color: @ivory;
+}
+
+/* ---- next prayer (custom/mawaqit) --------------------------------- */
+/* Sits in the left lintel after the diamonds, split off by the same
+ * hairline the instrument cluster uses. Colours per word come as markup
+ * from waybar-mawaqit; classes: soon (<15m to adhan), iqama, error. */
+
+#custom-mawaqit {
+    padding: 0 6px 0 11px;
+    margin: 8px 0 7px 6px;
+    border-left: 1px solid alpha(@brass, 0.25);
+    color: @ivory;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 11px;
+}
+
+#custom-mawaqit:hover {
+    background: alpha(@raised, 0.6);
+}
+
+#custom-mawaqit.error,
+#custom-mawaqit.unset {
+    color: @muted;
+}
+
+/* ---- window title (left lintel, after the prayer) ----------------- */
+
+#window {
+    padding: 0 6px 0 11px;
+    margin: 8px 0 7px 6px;
+    border-left: 1px solid alpha(@brass, 0.25);
+    color: @muted;
+    letter-spacing: 0.4px;
+    font-size: 11px;
+}
+
+/* ---- instrument cluster ------------------------------------------- */
+
+#custom-proton,
+#custom-tailscale,
+#network,
+#wireplumber,
+#bluetooth,
+#cpu,
+#memory,
+#temperature,
+#custom-nvidia,
+#power-profiles-daemon,
+#battery,
+#tray,
+#custom-tray-leader,
+#custom-notifications,
+#custom-idle,
+#custom-yawm {
+    padding: 0 9px;
+    margin: 8px 0 7px 0;
+    border-right: 1px solid alpha(@brass, 0.25);
+    color: @ivory;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 11px;
+}
+
+#clock {
+    padding: 0 4px;
+    color: @gold;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+#power-profiles-daemon {
+    color: @muted;
+}
+
+#custom-proton.up,
+#custom-tailscale.up {
+    color: #4DBF8C;
+}
+
+#custom-proton.down,
+#custom-tailscale.down {
+    color: #D9705E;
+}
+
+#custom-yawm.due {
+    color: @gold;
+}
+
+#custom-yawm.overdue {
+    color: #D9705E;
+}
+
+#custom-yawm:hover {
+    background: alpha(@raised, 0.6);
+}
+
+#custom-nvidia.active {
+    color: @gold;
+}
+
+#custom-idle.off,
+#battery.warning,
+#temperature.critical {
+    color: @gold;
+}
+
+#battery.critical {
+    color: #D9705E;
+}
+
+/* ---- click-to-reveal groups (NET, SYS, ◈) ------------------------- */
+
+#network,
+#cpu,
+#custom-tray-leader {
+    color: @ivory;
+}
+
+#network:hover,
+#cpu:hover,
+#custom-tray-leader:hover {
+    background: alpha(@raised, 0.6);
+}
+
+#custom-tray-leader {
+    color: @brass;
+    font-size: 12px;
+}
+
+#tray {
+    margin: 6px 0 6px 0;
+}
+
+/* Revealed members sit on Raised Slate so the group reads as one drawer. */
+.drawer-hidden {
+    background: alpha(@raised, 0.45);
+}
+
+#tray menu {
+    background: rgba(11, 14, 20, 0.92);
+    border: 1px solid alpha(@brass, 0.5);
+    color: @ivory;
+}

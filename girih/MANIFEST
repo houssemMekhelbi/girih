@@ -1,0 +1,70 @@
+# Girih theme + add-ons. Paths relative to $HOME; directories are copied whole.
+
+# Hyprland (core Lua config is included because girih.lua/workspaces.lua are
+# required from it and it launches the girih-*/hattin-* helpers)
+.config/hypr/hyprland.lua
+.config/hypr/futuwwa.lua
+.config/hypr/girih.lua
+.config/hypr/workspaces.lua
+.config/hypr/hyprlock.conf
+.config/hypr/hypridle.conf
+.config/hypr/hyprpaper.conf
+.config/hypr/girih
+
+# Waybar
+.config/waybar/config.jsonc
+.config/waybar/style.css
+.config/waybar/girih
+
+# GTK / Thunar, fonts, icons
+.config/gtk-3.0/gtk.css
+.config/gtk-3.0/settings.ini
+.config/gtk-3.0/girih
+.config/gtk-4.0/gtk.css
+.config/gtk-4.0/settings.ini
+.config/fontconfig/fonts.conf
+.local/share/fonts/girih
+.local/share/icons/Girih
+
+# Terminals, shell, multiplexer, (unused) fuzzel
+.config/foot/foot.ini
+.config/alacritty/alacritty.toml
+.config/ghostty/config.ghostty
+.config/tmux/tmux.conf
+.config/zsh/girih.zsh-theme
+.config/fuzzel/fuzzel.ini
+
+# Helpers: launcher, lock, workspaces, bar scripts
+.local/bin/girih-launcher
+.local/bin/girih-launcher-menu
+.local/bin/girih-lock-saying
+.local/bin/hattin-workspaces
+.local/bin/hattin-bluetooth-ui
+.local/bin/hattin-cliphist-store
+.local/bin/hattin-idle
+.local/bin/hattin-keys
+.local/bin/hattin-lock
+.local/bin/hattin-monitor-recover
+.local/bin/lock-unless-ssh-active
+.local/bin/waybar-nvidia
+.local/bin/waybar-proton
+.local/bin/waybar-tailscale
+
+# Add-on: yawm (Taskwarrior tasks; task *data* is not included)
+.config/task/taskrc
+.local/bin/waybar-yawm
+.local/bin/girih-yawm
+.local/bin/girih-yawm-menu
+
+# Add-on: mawaqit prayer times
+.config/mawaqit/mosques
+.config/containers/systemd/mawaqit-api.container
+.local/share/mawaqit-api
+.local/share/mawaqit/sounds
+.local/bin/waybar-mawaqit
+.local/bin/mawaqit-alert
+
+# User services
+.config/systemd/user/hattin-workspaces.service
+.config/systemd/user/mawaqit-alerts.service
+.config/systemd/user/cliphist.service.d/override.conf
