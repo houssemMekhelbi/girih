@@ -8,7 +8,7 @@
 
 setopt prompt_subst
 
-GIRIH_DEFAULT_USER=${GIRIH_DEFAULT_USER:-rahal}   # hide context on your own box
+GIRIH_DEFAULT_USER=${GIRIH_DEFAULT_USER:-$USER}   # hide context on your own box
 
 G_SLATE='#1A2233' G_LAPIS='#1F4E9C' G_EMERALD='#0F6B4F'
 G_BRASS='#C9A24A' G_GOLD='#E6C36A'  G_IVORY='#F2EAD8'

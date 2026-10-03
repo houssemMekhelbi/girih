@@ -300,6 +300,7 @@
     "on-click-right": "~/.local/bin/girih-yawm add"
   },
   "clock": {
+    "locale": "en_GB.UTF-8",
     "format": "<span color='#C9A24A' size='x-small'>◆</span>   <span color='#A8A090'>{0:%a %d %b}</span>  {0:%H:%M}   <span color='#C9A24A' size='x-small'>◆</span>",
     "tooltip-format": "<tt>{calendar}</tt>",
     "calendar": {
